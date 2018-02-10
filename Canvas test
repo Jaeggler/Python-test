@@ -1,0 +1,22 @@
+from tkinter import *
+
+master = Tk()
+
+
+Canvas1 = Canvas (master, width=200, height=100)
+Canvas1.pack()
+
+Canvas1.create_line(0,0,300,100)
+Canvas1.create_line(0,100,200,0, fill="red")
+Canvas1.create_rectangle((50,25,150,75), fill="blue")
+
+
+
+def cleancanvas():
+    Canvas1.delete(ALL)
+    print ("Clean!")
+
+Butt1 = Button(master, text="CLEAN!", command=cleancanvas)
+Butt1.pack()
+
+master.mainloop()
