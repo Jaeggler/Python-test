@@ -1,0 +1,30 @@
+from tkinter import *
+
+root = Tk()
+root.geometry("500x500")
+
+class test:
+    i = 12345
+    j = 10
+
+    #def __init__(self, i, j):
+        #self.i = i
+        #self.j = j
+
+    def notinit(self, i, j):
+        self.i = 54321
+        self.j = 30
+
+a = test()
+b = test()
+
+print (a.i)
+print (b.j)
+
+a.notinit(20, 30)
+b.notinit(40, 60)
+
+print (a.i)
+print (b.j)
+
+mainloop()

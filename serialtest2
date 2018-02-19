@@ -1,0 +1,25 @@
+from tkinter import *
+import serial
+
+#Open port
+ser = serial.Serial("COM6", 9600)
+
+def get_data(master, canvas):
+        myData = ser.readline().decode().strip()
+        canvas.itemconfig(item1, fill=myData)
+
+#Creating window
+root = Tk()
+root.geometry("500x500")
+
+
+#Creating canvas
+canvas= Canvas(root, width=300, height=300, bg="green")
+canvas.place(x=100, y=100)
+canvas.pack()
+item1= canvas.create_rectangle((50,50,250,250), fill="blue")
+
+
+#Running the programm
+canvas.after(50, get_data(root, canvas))
+mainloop()

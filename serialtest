@@ -1,0 +1,17 @@
+from tkinter import *
+import serial
+
+root = Tk()
+root.geometry("300x300")
+
+ser = serial.Serial("COM6", 9600)
+test1 = ser.readline()
+
+while (1 == 1):
+    if (ser.inWaiting() > 0):
+        print (test1)
+
+B1 = Button(root, text="Quit", command=root.quit)
+B1.pack()
+
+mainloop()

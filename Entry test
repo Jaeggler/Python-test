@@ -1,0 +1,14 @@
+from tkinter import *
+
+root = Tk()
+
+e = Entry(root)
+e.pack()
+
+e.delete(0, END)
+e.insert(0, "test" )
+
+s = e.get()
+
+
+mainloop()

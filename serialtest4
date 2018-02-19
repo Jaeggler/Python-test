@@ -1,0 +1,36 @@
+from tkinter import *
+import serial
+
+#Open ports
+
+port1 = serial.Serial("COM6", 9600)
+
+class Colorec:
+    def __init__(self, canvas, x1, y1, x2, y2):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.canvas = canvas
+        self.square = canvas.create_rectangle(self.x1, self.y1, self.x2, self.y2)
+
+    def cambio(self):
+        myData = port1.readline().decode().strip()
+        self.canvas.itemconfig(self.square, fill=myData)
+        self.canvas.after(500, self.cambio)
+
+#initialize
+
+root = Tk()
+root.geometry("500x500")
+root.title("color change")
+canvas = Canvas(root, width = 300, height = 300)
+canvas.place(x=100, y=100)
+canvas.pack()
+
+#Create items
+
+Rec1 = Colorec(canvas, 50, 50, 250, 250)
+Rec1.cambio()
+
+root.mainloop()

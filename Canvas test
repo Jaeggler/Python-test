@@ -1,12 +1,17 @@
 from tkinter import *
 
 master = Tk()
+master.geometry("500x500")
 
+coord1 = (0,0)
+coord2 = (300,300)
 
 Canvas1 = Canvas (master, width=200, height=100)
 Canvas1.pack()
 
-Canvas1.create_line(0,0,300,100)
+
+
+Canvas1.create_line(coord1,coord2)
 Canvas1.create_line(0,100,200,0, fill="red")
 Canvas1.create_rectangle((50,25,150,75), fill="blue")
 

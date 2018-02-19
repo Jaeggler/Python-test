@@ -3,7 +3,26 @@ from tkinter import *
 root = Tk()
 root.geometry("500x500")
 
+#Setting Origin
+origin = (10,290)
+arrowy = (10,10)
+arrowx = (290,290)
+
+#Drawing mat
 Canv1 = Canvas (root, width=300, height=300, bg="red")
+Canv1.create_line(origin,arrowy , arrow=LAST)
+Canv1.create_line(origin,arrowx , arrow=LAST)
 Canv1.pack
+Canv1.place(x=100,y=100)
+
+class graphic:
+    def __init__(self, CRX1,CRY1, CRX2, CRY2):
+        self.P1 = (CRX1, CRY1)
+        self.P2 = (CRX2, CRY2)
+        Canv1.create_line(self.P1, self.P2)
+
+L1 = graphic(10,290,40,200)
+B1 = Button(root, text = "quit", command=root.quit)
+B1.pack()
 
 mainloop()
