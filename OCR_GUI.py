@@ -14,7 +14,7 @@ def openfileui():
         ))
 
 def cropimage():
-   image = Image.open("Z:\OCRTest\serra_angel.jpg")
+   image = Image.open(".\serra_angel.jpg")
    cropped = image.crop((25,25,250,125))
    cropped.show()
 
